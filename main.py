@@ -5,6 +5,15 @@ import sys
 # Initial setup
 pygame.init()
 screen = pygame.display.set_mode((300, 600)) # Width, Height
+pygame.display.set_caption("Alvin's Tetris made in Python!")
+clock = pygame.time.Clock()
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit
 
 # Global Variables
 blockSize = 30
