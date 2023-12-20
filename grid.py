@@ -6,8 +6,8 @@ class Grid:
         # Array to represent the grid itself
         self.grid = [[0 for i in range(self.num_cols)] for j in range (self.num_rows)]
 
-def print_grid(self):
-    for row in range(self.num_rows):
-        for column in range(self.num_cols):
-            print(self.grid[row][column], end = " ")
-        print()
+    def print_grid(self):
+        for row in range(self.num_rows):
+            for column in range(self.num_cols):
+                print(self.grid[row][column], end = " ")
+            print()

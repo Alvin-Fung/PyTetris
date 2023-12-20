@@ -8,11 +8,12 @@ import random
 pygame.init()
 dark_blue = (44, 44, 127)
 screen = pygame.display.set_mode((300, 600)) # Width, Height
-pygame.display.set_caption("Alvin's Tetris made in Python!")
+pygame.display.set_caption("Python Tetris")
 clock = pygame.time.Clock()
 running = True
 
 game_grid = Grid()
+# Doesn't seem to like printing out the amount of 0s in an grid within the terminal
 game_grid.print_grid()
 
 while running:
