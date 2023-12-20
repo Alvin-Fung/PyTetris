@@ -2,13 +2,14 @@ import pygame
 import random
 import sys
 
+# Initial setup
 pygame.init()
+screen = pygame.display.set_mode((300, 600)) # Width, Height
 
 # Global Variables
-width, height = 700,600
-gameWidth = 100
-gameHeight = 400
 blockSize = 30
+
+# Colours 
 
 # Shape Formats
 S = [[
@@ -90,6 +91,13 @@ S = [[
       '.0...',
       '.....',]
     ],
-    []
+    [
+     ['.....',
+      '.000.',
+      '.000.',
+      '.....',
+      '.....',]   
+    ]
 ]]
+
 
