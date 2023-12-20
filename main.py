@@ -1,6 +1,8 @@
 import pygame
-import random
 import sys
+from grid import Grid
+import random
+
 
 # Game loop
 pygame.init()
@@ -9,6 +11,9 @@ screen = pygame.display.set_mode((300, 600)) # Width, Height
 pygame.display.set_caption("Alvin's Tetris made in Python!")
 clock = pygame.time.Clock()
 running = True
+
+game_grid = Grid()
+game_grid.print_grid()
 
 while running:
     for event in pygame.event.get():
