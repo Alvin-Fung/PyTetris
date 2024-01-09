@@ -1,7 +1,6 @@
-import pygame
-import sys
+import pygame,sys
 from grid import Grid
-import random
+from blocks import *
 
 
 # Game loop
@@ -14,12 +13,9 @@ clock = pygame.time.Clock()
 running = True
 
 game_grid = Grid()
-#Testing to see if different colours show up on the grid
-game_grid.grid[0][0] = 1 
-game_grid.grid[3][5] = 4 
-game_grid.grid[17][8] = 7 
+#Test here to see if different colours show up on the grid
 
-game_grid.print_grid()
+block = LBlock()
 
 while running:
     for event in pygame.event.get():
@@ -30,6 +26,7 @@ while running:
     # Game Rendering/Drawing
     screen.fill(dark_blue)
     game_grid.draw(screen)
+    block.draw(screen)
     
     pygame.display.update()
     clock.tick(60) # Limits the game to run at 60 FPS.
