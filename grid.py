@@ -1,3 +1,5 @@
+import pygame
+
 class Grid:
     def __init__(self):
         self.num_rows = 20 
@@ -26,7 +28,12 @@ class Grid:
         
         return [dark_grey, red, green, blue, orange, yellow, purple, cyan]
 
-    def draw(self):
+    def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
                 cell_value = self.grid[row][column]
+                  # Rect method to be drawn on the screen - Margins are added to acquire the 29 pixels
+                cell_rect = pygame.Rect(column*self.cell_size +1, row*self.cell_size +1, 
+                                        self.cell_size -1, self.cell_size-1) 
+                # Draw method (acquires color tuple for that specific cell)
+                pygame.draw.rect(screen, self.colors[cell_value], cell_rect) 

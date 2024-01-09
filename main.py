@@ -13,7 +13,11 @@ clock = pygame.time.Clock()
 running = True
 
 game_grid = Grid()
-# Doesn't seem to like printing out the amount of 0s in an grid within the terminal
+#Testing to see if different colours show up on the grid
+game_grid.grid[0][0] = 1 
+game_grid.grid[3][5] = 4 
+game_grid.grid[17][8] = 7 
+
 game_grid.print_grid()
 
 while running:
@@ -24,6 +28,7 @@ while running:
             sys.exit
     # Game Rendering/Drawing
     screen.fill(dark_blue)
+    game_grid.draw(screen)
     
     pygame.display.update()
     clock.tick(60) # Limits the game to run at 60 FPS.
