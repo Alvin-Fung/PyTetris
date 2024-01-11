@@ -15,9 +15,6 @@ class Grid:
             for column in range(self.num_cols):
                 print(self.grid[row][column], end = " ")
             print()
-            
-    
-            
 
     def draw(self, screen):
         for row in range(self.num_rows):
