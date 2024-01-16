@@ -16,6 +16,7 @@ game_grid = Grid()
 #Test here to see if different colours show up on the grid
 
 block = LBlock()
+block.move(4,3)
 
 while running:
     for event in pygame.event.get():

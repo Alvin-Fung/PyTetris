@@ -16,9 +16,17 @@ class Block:
         self.row_offset += rows
         self.column_offset += columns
         
+    #This method will return the occupied positions with the offset applied in a list
+    def get_cell_positions(self):
+        tiles = self.cells[self.rotation_state] #Default cell position
+        moved_tiles = []
+        for position in tiles:
+            position = Position(position.row + self.row_offset, position.column + self.column_offset)
+            moved_tiles.append(position)
+        return moved_tiles
     
     def draw(self, screen):
-        tiles = self.cells[self.rotation_state] #Retrieves the current position of the rotation state
+        tiles = self.get_cell_positions() #Retrieves the current position of the rotation state
         for tile in tiles:
             # Similar to what we did in the grid class to offeset 1 pixel
             tile_rect = pygame.Rect(tile.column * self.cell_size +1, tile.row * self.cell_size +1, 
