@@ -10,9 +10,6 @@ pygame.display.set_caption("Python Tetris")
 clock = pygame.time.Clock()
 running = True
 
-game_grid = Grid()
-#Test here to see if different colours show up on the grid
-
 while running:
     for event in pygame.event.get():
         # pygame.QUIT event allows the user to click X to close the game window.
