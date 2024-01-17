@@ -5,8 +5,8 @@ import random
 class Game:
     def __init__(self):
         self.grid = Grid()
-        self.blocks = []
-        self.current_block = [IBlock(), JBlock(), LBlock(), SBlock(), TBlock(), ZBlock()]
+        self.blocks = [IBlock(), JBlock(), LBlock(), SBlock(), TBlock(), ZBlock()]
+        self.current_block = self.get_random_block()
         self.next_block = self.get_random_block()
         
     #Randomly decides what block is used next
