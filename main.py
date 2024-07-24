@@ -30,7 +30,7 @@ while running:
             if event.key == pygame.K_UP:
                 game.move_rotate()
             if event.key == pygame.K_DOWN:
-                game.move_down()
+                game.rotate()
             
     # Game Rendering/Drawing
     screen.fill(dark_blue)
