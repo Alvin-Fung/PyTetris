@@ -34,6 +34,9 @@ class Game:
     
     def rotate(self):
         self.current_block.rotate()
+        if self.block_inside == False:
+            #Need rotation logic first but going to leave this as it is for now.
+            pass
     
     def block_inside(self):
         tiles = self.current_block.get_cell_positions()
