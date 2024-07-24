@@ -19,6 +19,7 @@ class Game:
 
     def move_left(self):
         self.current_block.move(0, -1)
+        
     
     def move_right(self):
         self.current_block.move(0, 1)
@@ -28,6 +29,9 @@ class Game:
     
     def rotate(self):
         self.current_block.rotate()
+    
+    def block_inside(self):
+        tiles = self.current_block.get_cells_positions()
     
     def draw(self, screen):
         self.grid.draw(screen)

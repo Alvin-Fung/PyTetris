@@ -13,8 +13,6 @@ clock = pygame.time.Clock()
 running = True
 
 game = Game()
-block = TBlock()
-block.move(0,3)
 
 while running:
     for event in pygame.event.get():
