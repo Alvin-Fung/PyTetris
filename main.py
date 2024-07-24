@@ -27,6 +27,8 @@ while running:
                 game.move_left()
             if event.key == pygame.K_RIGHT:
                 game.move_right()
+            if event.key == pygame.K_UP:
+                game.move_rotate()
             if event.key == pygame.K_DOWN:
                 game.move_down()
             

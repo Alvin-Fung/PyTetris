@@ -26,7 +26,7 @@ class Game:
     def move_down(self):
         self.current_block.move(1 , 0)
     
-    def rotate(self):
+    def move_rotate(self):
         pass
     
     def draw(self, screen):
