@@ -24,9 +24,14 @@ class Game:
     
     def move_right(self):
         self.current_block.move(0, 1)
+        if self.block_inside() == False:
+            self.current_block.move(0, -1)
     
     def move_down(self):
         self.current_block.move(1 , 0)
+        if self.block_inside() == False:
+            self.current_block.move(-1, -0)
+    
     
     def rotate(self):
         self.current_block.rotate()
