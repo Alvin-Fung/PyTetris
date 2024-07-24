@@ -1,5 +1,6 @@
 import pygame,sys
 from game import Game
+from blocks import *
 
 # Game loop
 pygame.init()
@@ -12,6 +13,8 @@ clock = pygame.time.Clock()
 running = True
 
 game = Game()
+block = TBlock()
+block.move(0,3)
 
 while running:
     for event in pygame.event.get():
@@ -33,5 +36,3 @@ while running:
     
     pygame.display.update()
     clock.tick(60) # Limits the game to run at 60 FPS.
-    
-
