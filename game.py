@@ -27,7 +27,7 @@ class Game:
         self.current_block.move(1 , 0)
     
     def move_rotate(self):
-        pass
+        self.current_block.rotate()
     
     def draw(self, screen):
         self.grid.draw(screen)
