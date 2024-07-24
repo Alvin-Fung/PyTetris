@@ -32,6 +32,11 @@ class Game:
     
     def block_inside(self):
         tiles = self.current_block.get_cells_positions()
+        #Checks if there are any tiles outisde of the grid
+        for tile in tiles:
+            if self.grid.is_inside(tile.row, tile.column) == False:
+                return False
+        return True
     
     def draw(self, screen):
         self.grid.draw(screen)
