@@ -25,10 +25,10 @@ while running:
                 game.move_left()
             if event.key == pygame.K_RIGHT:
                 game.move_right()
-            if event.key == pygame.K_UP:
-                game.move_rotate()
+            #if event.key == pygame.K_UP:
+                #game.rotate()
             if event.key == pygame.K_DOWN:
-                game.rotate()
+                game.move_down()
             
     # Game Rendering/Drawing
     screen.fill(dark_blue)
