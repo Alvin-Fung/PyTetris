@@ -25,6 +25,9 @@ class Block:
             moved_tiles.append(position)
         return moved_tiles
     
+    def rotate(self):
+        pass
+    
     def draw(self, screen):
         tiles = self.get_cell_positions() #Retrieves the current position of the rotation state
         for tile in tiles:

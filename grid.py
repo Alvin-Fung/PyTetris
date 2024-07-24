@@ -16,9 +16,6 @@ class Grid:
                 print(self.grid[row][column], end = " ")
             print()
 
-    def boundary(self, row, column):
-       pass
-
     def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
