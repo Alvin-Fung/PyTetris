@@ -26,7 +26,10 @@ class Block:
         return moved_tiles
     
     def rotate(self):
-        pass
+        self.rotation_state += 1
+        # All blocks other than the square block has 4 rotation states
+        if self.rotation == len(self.cells): # This resets the rotation state after the final increment
+            self.rotation_state = 0
     
     def draw(self, screen):
         tiles = self.get_cell_positions() #Retrieves the current position of the rotation state
