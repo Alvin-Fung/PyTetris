@@ -40,8 +40,12 @@ class Game:
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
     
-    def block_fits(self):
+    def block_fits(self): # Similar to block_inside but us
         tiles = self.current_block.get_cell_positions()
+        for tile in tiles:
+            if self.grid.is_empty(tile.row, tile.column) == False:
+                return False
+                
             
     def rotate(self):
         self.current_block.rotate()
@@ -56,8 +60,13 @@ class Game:
                 return False
         return True
     
+    def is_inside(self, row, column):
+        if self.grid[row][column] == 1:
+            return True
+        return False
+    
     def is_empty(self, row, column):
-        if self.grid[row][column] = 0:
+        if self.grid[row][column] == 0:
             return True
         return False
     
