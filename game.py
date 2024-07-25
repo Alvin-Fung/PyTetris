@@ -46,7 +46,6 @@ class Game:
             if self.grid.is_empty(tile.row, tile.column) == False:
                 return False
                 
-            
     def rotate(self):
         self.current_block.rotate()
         if self.block_inside == False:
@@ -59,16 +58,7 @@ class Game:
             if self.grid.is_inside(tile.row, tile.column) == False:
                 return False
         return True
-    
-    def is_inside(self, row, column):
-        if self.grid[row][column] == 1:
-            return True
-        return False
-    
-    def is_empty(self, row, column):
-        if self.grid[row][column] == 0:
-            return True
-        return False
+
     
     def draw(self, screen):
         self.grid.draw(screen)
