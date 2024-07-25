@@ -26,6 +26,22 @@ class Grid:
             return True
         return False
     
+    '''
+    Need functions that:
+    - Check if the row is filled
+    - Clear the row if it's filled
+    - Move the row down once it's cleared
+    '''
+    
+    def is_row_filled(self):
+        pass
+    
+    def clear_row(self):
+        pass
+    
+    def move_row_down(self):
+        pass
+    
     def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
