@@ -42,7 +42,7 @@ class Game:
     
     def block_fits(self):
         tiles = self.current_block.get_cell_positions()
-        
+            
     def rotate(self):
         self.current_block.rotate()
         if self.block_inside == False:
@@ -55,6 +55,11 @@ class Game:
             if self.grid.is_inside(tile.row, tile.column) == False:
                 return False
         return True
+    
+    def is_empty(self, row, column):
+        if self.grid[row][column] = 0:
+            return True
+        return False
     
     def draw(self, screen):
         self.grid.draw(screen)
