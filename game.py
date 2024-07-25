@@ -33,13 +33,15 @@ class Game:
             self.current_block.move(-1, -0)
             self.lock_block()
     
-    
     def lock_block(self):
-        positions = self.current_block.get_cell_positions()
-        for pos in positions:
+        tiles = self.current_block.get_cell_positions()
+        for pos in tiles:
             self.grid.grid[pos.row][pos.column] = self.current_block.id
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
+    
+    def block_fits(self):
+        tiles = self.current_block.get_cell_positions()
         
     def rotate(self):
         self.current_block.rotate()
