@@ -31,6 +31,10 @@ class Game:
         self.current_block.move(1 , 0)
         if self.block_inside() == False:
             self.current_block.move(-1, -0)
+            self.lock_block()
+    
+    def lock_block(self):
+        pass 
     
     def rotate(self):
         self.current_block.rotate()
