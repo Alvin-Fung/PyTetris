@@ -33,11 +33,11 @@ class Game:
             self.current_block.move(-1, -0)
             self.lock_block()
     
+    
     def lock_block(self):
-        # For every row and column
-        for row in range(self.row):
-            for column in range(self.column):
-                self.grid.grid[self.num_rows][self.num_col] = self.current_block.id
+        positions = self.current_block.get_cell_positions()
+        for pos in positions:
+            self.grid.grid[pos.row][pos.column] = self.current_block.id
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
         
