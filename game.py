@@ -34,8 +34,13 @@ class Game:
             self.lock_block()
     
     def lock_block(self):
-        pass 
-    
+        # For every row and column
+        for row in range(self.row):
+            for column in range(self.column):
+                self.grid.grid[self.num_rows][self.num_col] = self.current_block.id
+        self.current_block = self.next_block
+        self.next_block = self.get_random_block()
+        
     def rotate(self):
         self.current_block.rotate()
         if self.block_inside == False:
