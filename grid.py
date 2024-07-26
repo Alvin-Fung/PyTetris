@@ -11,10 +11,7 @@ class Grid:
         self.colors = Colors.get_cell_colors()
 
     def print_grid(self):
-        for row in range(self.num_rows):
-            for column in range(self.num_cols):
-                print(self.grid[row][column], end = " ")
-            print()
+        print(self.grid)
             
     def is_inside(self, row, column):
         if row >= 0 and row < self.num_rows and column >= 0 and column < self.num_cols:
@@ -32,34 +29,18 @@ class Grid:
     - Clear the row if it's filled - Check
     - Move the row down once it's cleared - In progress
     '''
-    
     def is_row_filled(self, row):
-        is_filled = True
         for column in range(10):
             if self.grid[row][column] == 0:
-                is_filled = False
-        return is_filled
+                return True
+        return False
     
-    '''
-    Initialise a variable called lines_cleared to 0 - Check
-    Loop for each row in the grid - Check
-    If the row is "filled", returne True / Increment by 1(Might need do a double take on this one) - Check
-    Remove the filled row from the grid. - Check(I think this is done right with the pop() method)
-    Insert a new empty row at the top of the grid - I forgot I should initalise this first
-    Increment lines_cleared by 1. - Check
-    Return lines_cleared. - Check
-    '''
-    def clear_row(self):
-        lines_cleared = 0
-        new_grid = []
-        for row in range(self.num_rows):
-            if self.is_now_filled(row):
-                # If the row is filled, increment lines_cleared
-                lines_cleared += 1
-            else: 
-                # If the row is not filled, add it to the new grid(?)
-                new_grid.append(row)
-        return lines_cleared       
+    def clear_row(self):  
+     for row in self.grid:
+         # All function checks to see if all items within a list are True
+            if all(row) == True:
+                for i in range(0,len(row)):
+                    row[i] = 0
     
     '''
     I don't think I need to initialise anything here.
@@ -85,3 +66,12 @@ class Grid:
                                         self.cell_size -1, self.cell_size-1) 
                 # Draw method (acquires color tuple for that specific cell)
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect) 
+                
+#grid = Grid()
+#grid.print_grid()
+
+#grid.grid[0] = [1 for i in grid.grid[0]]
+#print(grid.grid[0])
+   
+#grid.eliminate_filled_rows()
+#print(grid.grid[0])
