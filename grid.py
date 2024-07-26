@@ -63,11 +63,13 @@ class Grid:
     
     '''
     I don't think I need to initialise anything here.
-    For every row & column within the grid that is no longer filled, move it down
+    For every row & column within the grid that is no longer filled
+    Then move it down.
     '''
-    
     def move_row_down(self):
-        pass
+        for row in range(self.num_rows):
+            for column in range(self.num_cols):
+                self.grid[row][column] == 0
     
     def draw(self, screen):
         for row in range(self.num_rows):
