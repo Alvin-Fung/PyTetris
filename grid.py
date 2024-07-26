@@ -32,6 +32,7 @@ class Grid:
     def is_row_filled(self, row):
         return all(self.grid[row])
     
+    '''
     def clear_row(self):  
      for row in self.grid:
          # All function checks to see if all items within a list are True
@@ -39,24 +40,26 @@ class Grid:
                 for i in range(0,len(row)):
                     row[i] = 0
     '''
+    
+    def insert_empty_row_at_the_top(self):
+        empty_row = [0] * self.num_cols
+        self.grid.insert(0, empty_row)
+
+    def clear_row(self, row):
+        self.grid.pop(row)
+    
+    '''
     I don't think I need to initialise anything here.
     Loop through every row & column within the grid to check if it's filled
     For each row that is filled, remove the row entirely.
     Then move the row down
     '''
-    def remove_row(self, row):
-        self.grid.pop(row)
-    
     def move_row_down(self):
         for row in range(self.num_rows):
-            for column in range(self.num_cols):
-                if self.is_now_filled(row):
-                    self.remove_row(row)
+            if self.is_row_filled(row):
+                self.clear_row(row)
+                self.insert_empty_row_at_the_top()
                     
-    def insert_empty_row_at_the_top(self):
-        empty_row = [0] * self.num_cols
-        self.grid.insert(0, empty_row)
-    
     def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
