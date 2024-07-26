@@ -30,10 +30,7 @@ class Grid:
     - Move the row down once it's cleared - In progress
     '''
     def is_row_filled(self, row):
-        for column in range(10):
-            if self.grid[row][column] == 0:
-                return True
-        return False
+        return all(self.grid[row])
     
     def clear_row(self):  
      for row in self.grid:
@@ -41,7 +38,6 @@ class Grid:
             if all(row) == True:
                 for i in range(0,len(row)):
                     row[i] = 0
-    
     '''
     I don't think I need to initialise anything here.
     Loop through every row & column within the grid to check if it's filled
@@ -56,6 +52,10 @@ class Grid:
             for column in range(self.num_cols):
                 if self.is_now_filled(row):
                     self.remove_row(row)
+                    
+    def insert_empty_row_at_the_top(self):
+        empty_row = [0] * self.num_cols
+        self.grid.insert(0, empty_row)
     
     def draw(self, screen):
         for row in range(self.num_rows):
