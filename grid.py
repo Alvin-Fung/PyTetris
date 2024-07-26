@@ -30,7 +30,7 @@ class Grid:
     Need functions that:
     - Check if the row is filled - Check
     - Clear the row if it's filled - Check
-    - Move the row down once it's cleared
+    - Move the row down once it's cleared - In progress
     '''
     
     def is_row_filled(self, row):
@@ -63,13 +63,18 @@ class Grid:
     
     '''
     I don't think I need to initialise anything here.
-    For every row & column within the grid that is no longer filled
-    Then move it down.
+    Loop through every row & column within the grid to check if it's filled
+    For each row that is filled, remove the row entirely.
+    Then move the row down
     '''
+    def remove_row(self, row):
+        self.grid.pop(row)
+    
     def move_row_down(self):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
-                self.grid[row][column] == 0
+                if self.is_now_filled(row):
+                    self.remove_row(row)
     
     def draw(self, screen):
         for row in range(self.num_rows):
