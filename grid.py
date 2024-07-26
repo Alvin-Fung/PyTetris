@@ -40,8 +40,22 @@ class Grid:
                 is_filled = False
         return is_filled
     
+    '''
+    Initialise a variable called lines_cleared to 0
+    Loop for each row in the grid
+    If the row is "filled", returne True
+    Remove the filled row from the grid.
+    Insert a new empty row at the top of the grid.
+    Increment lines_cleared by 1.
+    Return lines_cleared.
+    '''
     def clear_row(self):
-        pass
+        lines_cleared = 0
+        for row in range(self.num_rows):
+            if self.grid[row]:
+                lines_cleared += 1
+            
+                
     
     def move_row_down(self):
         pass
