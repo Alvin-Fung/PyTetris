@@ -28,8 +28,8 @@ class Grid:
     
     '''
     Need functions that:
-    - Check if the row is filled
-    - Clear the row if it's filled
+    - Check if the row is filled - Check
+    - Clear the row if it's filled - Check
     - Move the row down once it's cleared
     '''
     
@@ -46,17 +46,19 @@ class Grid:
     If the row is "filled", returne True / Increment by 1(Might need do a double take on this one) - Check
     Remove the filled row from the grid. - Check(I think this is done right with the pop() method)
     Insert a new empty row at the top of the grid - I forgot I should initalise this first
-    Increment lines_cleared by 1.
-    Return lines_cleared.
+    Increment lines_cleared by 1. - Check
+    Return lines_cleared. - Check
     '''
     def clear_row(self):
         lines_cleared = 0
         new_grid = []
         for row in range(self.num_rows):
             if self.is_now_filled(row):
+                # If the row is filled, increment lines_cleared
                 lines_cleared += 1
             else: 
-                self.row.pop()
+                # If the row is not filled, add it to the new grid(?)
+                new_grid.append(row)
         return lines_cleared       
     
     def move_row_down(self):
