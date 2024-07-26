@@ -41,21 +41,23 @@ class Grid:
         return is_filled
     
     '''
-    Initialise a variable called lines_cleared to 0
-    Loop for each row in the grid
-    If the row is "filled", returne True
-    Remove the filled row from the grid.
-    Insert a new empty row at the top of the grid.
+    Initialise a variable called lines_cleared to 0 - Check
+    Loop for each row in the grid - Check
+    If the row is "filled", returne True / Increment by 1(Might need do a double take on this one) - Check
+    Remove the filled row from the grid. - Check(I think this is done right with the pop() method)
+    Insert a new empty row at the top of the grid - I forgot I should initalise this first
     Increment lines_cleared by 1.
     Return lines_cleared.
     '''
     def clear_row(self):
         lines_cleared = 0
+        new_grid = []
         for row in range(self.num_rows):
-            if self.grid[row]:
+            if self.is_now_filled(row):
                 lines_cleared += 1
-            
-                
+            else: 
+                self.row.pop()
+        return lines_cleared       
     
     def move_row_down(self):
         pass
