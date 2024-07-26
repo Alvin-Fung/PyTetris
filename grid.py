@@ -61,6 +61,11 @@ class Grid:
                 new_grid.append(row)
         return lines_cleared       
     
+    '''
+    I don't think I need to initialise anything here.
+    For every row & column within the grid that is no longer filled, move it down
+    '''
+    
     def move_row_down(self):
         pass
     
