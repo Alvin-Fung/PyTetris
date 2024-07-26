@@ -1,6 +1,17 @@
 import pygame
 from colors import Colors
 
+
+'''
+Need functions that:
+- Check if the row is filled - Check
+- Clear the row if it's filled - Check
+ - I don't think I need to initialise anything here.
+    Loop through every row & column within the grid to check if it's filled
+    For each row that is filled, remove the row entirely.
+    Then move the row down
+- Move the row down once it's cleared - Check
+'''
 class Grid:
     def __init__(self):
         self.num_rows = 20 
@@ -23,15 +34,17 @@ class Grid:
             return True
         return False
     
-    '''
-    Need functions that:
-    - Check if the row is filled - Check
-    - Clear the row if it's filled - Check
-    - Move the row down once it's cleared - In progress
-    '''
+
     def is_row_filled(self, row):
         return all(self.grid[row])
     
+    def insert_empty_row_at_the_top(self):
+        empty_row = [0] * self.num_cols
+        self.grid.insert(0, empty_row)
+
+    def clear_row(self, row):
+        self.grid.pop(row)
+        
     '''
     def clear_row(self):  
      for row in self.grid:
@@ -41,19 +54,6 @@ class Grid:
                     row[i] = 0
     '''
     
-    def insert_empty_row_at_the_top(self):
-        empty_row = [0] * self.num_cols
-        self.grid.insert(0, empty_row)
-
-    def clear_row(self, row):
-        self.grid.pop(row)
-    
-    '''
-    I don't think I need to initialise anything here.
-    Loop through every row & column within the grid to check if it's filled
-    For each row that is filled, remove the row entirely.
-    Then move the row down
-    '''
     def move_row_down(self):
         for row in range(self.num_rows):
             if self.is_row_filled(row):
