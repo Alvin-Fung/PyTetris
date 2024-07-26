@@ -59,6 +59,9 @@ class Game:
                 return False
         return True
     
+    def paused(self):
+        pass
+    
     def draw(self, screen):
         self.grid.draw(screen)
         self.current_block.draw(screen)

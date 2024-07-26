@@ -32,6 +32,8 @@ while running:
                 game.rotate()
             if event.key == pygame.K_DOWN:
                 game.move_down()
+            if event.key == pygame.K_ESCAPE:
+                game.paused()
         if event.type == game_update: 
             # This will continously bring the piece down 
             # whilst using the custom event outside the while loop
