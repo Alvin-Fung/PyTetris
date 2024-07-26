@@ -33,8 +33,12 @@ class Grid:
     - Move the row down once it's cleared
     '''
     
-    def is_row_filled(self):
-        pass
+    def is_row_filled(self, row):
+        is_filled = True
+        for column in range(10):
+            if self.grid[row][column] == 0:
+                is_filled = False
+        return is_filled
     
     def clear_row(self):
         pass
