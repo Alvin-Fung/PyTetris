@@ -48,6 +48,7 @@ class Game:
         tiles = self.current_block.get_cell_positions()
         for tile in tiles:
             if self.grid.is_empty(tile.row, tile.column) == False:
+                print(f"Block does not fit at row {tile.row}, column {tile.column}")
                 return False
                 
     def rotate(self):

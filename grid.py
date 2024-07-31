@@ -30,6 +30,7 @@ class Grid:
         
     def is_empty(self, row, column):
         if self.grid[row][column] == 0:
+            print(f"Checking if cell is empty at row{row}, column {column}")
             return True
         return False
     
