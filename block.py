@@ -41,6 +41,6 @@ class Block:
         tiles = self.get_cell_positions() #Retrieves the current position of the rotation state
         for tile in tiles:
             # Similar to what we did in the grid class to offeset 1 pixel
-            tile_rect = pygame.Rect(tile.column * self.cell_size +1, tile.row * self.cell_size +1, 
+            tile_rect = pygame.Rect(tile.column * self.cell_size +11, tile.row * self.cell_size +11, 
                                     self.cell_size -1, self.cell_size -1)
             pygame.draw.rect(screen, self.colors[self.id], tile_rect) 

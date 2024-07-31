@@ -71,7 +71,7 @@ class Grid:
             for column in range(self.num_cols):
                 cell_value = self.grid[row][column]
                   # Rect method to be drawn on the screen - Margins are added to acquire the 29 pixels
-                cell_rect = pygame.Rect(column*self.cell_size +1, row*self.cell_size +1, 
+                cell_rect = pygame.Rect(column*self.cell_size + 11, row*self.cell_size +11, 
                                         self.cell_size -1, self.cell_size-1) 
                 # Draw method (acquires color tuple for that specific cell)
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect) 
