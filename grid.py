@@ -30,7 +30,6 @@ class Grid:
         
     def is_empty(self, row, column):
         if self.grid[row][column] == 0:
-            print(f"Checking if cell is empty at row{row}, column {column}")
             return True
         return False
     
@@ -61,9 +60,12 @@ class Grid:
                 self.insert_empty_row_at_the_top()
     
     def reset(self):
-        #Learnt how to do nested list comprehension, might try and apply it to my other functions as well.
-        self.grid = [[0 for _ in range(self.num_rows)] for _ in range(self.num_cols)]
-    
+        #Nested list comprehension might not work for this case.
+        #self.grid = [[0 for _ in range(self.num_rows)] for _ in range(self.num_cols)]
+        for row in range(self.num_rows):
+            for column in range(self.num_cols):
+                self.grid[row][column] = 0                
+                
     def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):

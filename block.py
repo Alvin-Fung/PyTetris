@@ -34,7 +34,7 @@ class Block:
     # Similar to rotate(), this will undo the rotation if the block is outside of the grid
     def undo_rotation(self):
         self.rotation -= 1
-        if self.rotation_state == 0:
+        if self.rotation_state == -1:
             self.rotation = len(self.cells) - 1
         
     def draw(self, screen):
