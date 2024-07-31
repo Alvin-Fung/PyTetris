@@ -8,6 +8,7 @@ class Game:
         self.blocks = [IBlock(), JBlock(), LBlock(), SBlock(), TBlock(), ZBlock()]
         self.current_block = self.get_random_block()
         self.next_block = self.get_random_block()
+        self.game_over = False
         
     #Randomly decides what block is used next
     def get_random_block(self):
@@ -40,6 +41,8 @@ class Game:
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
         self.grid.move_row_down()
+        if self.block_fits() == False:
+            self.game_over = True
     
     def block_fits(self): # Similar to block_inside but us
         tiles = self.current_block.get_cell_positions()
@@ -62,6 +65,12 @@ class Game:
     
     def paused(self):
         pass
+    
+    def reset(self):
+        self.grid.reset()
+        self.blocks = [IBlock(), JBlock(), LBlock(), SBlock(), TBlock(), ZBlock()]
+        self.current_block = self.get_random_block()
+        self.next_block = self.get_random_block()
     
     def draw(self, screen):
         self.grid.draw(screen)

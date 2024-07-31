@@ -1,7 +1,6 @@
 import pygame
 from colors import Colors
 
-
 '''
 Need functions that:
 - Check if the row is filled - Check
@@ -59,7 +58,11 @@ class Grid:
             if self.is_row_filled(row):
                 self.clear_row(row)
                 self.insert_empty_row_at_the_top()
-                    
+    
+    def reset(self):
+        #Learnt how to do nested list comprehension, might try and apply it to my other functions as well.
+        self.grid = [[0 for _ in range(self.num_rows)] for _ in range(self.num_cols)]
+    
     def draw(self, screen):
         for row in range(self.num_rows):
             for column in range(self.num_cols):
