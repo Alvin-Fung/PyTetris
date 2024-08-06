@@ -33,7 +33,7 @@ class Block:
     
     # Similar to rotate(), this will undo the rotation if the block is outside of the grid
     def undo_rotation(self):
-        self.rotation -= 1
+        self.rotation_state -= 1
         if self.rotation_state == -1:
             self.rotation = len(self.cells) - 1
         
