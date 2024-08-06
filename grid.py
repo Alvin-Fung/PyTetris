@@ -43,23 +43,12 @@ class Grid:
     def clear_row(self, row):
         self.grid.pop(row)
     
-    def move_row_down(self):
+    def clear_row_move_down(self):
         for row in range(self.num_rows):
             if self.is_row_filled(row):
                 self.clear_row(row)
                 self.insert_empty_row_at_the_top()
                 
-    def clear_full_rows(self):
-        completed = 0
-        # Iterating through rows from bottom to top
-        for row in range(self.num_rows-1, -1, -1):
-            if self.is_row_filled(row):
-                self.clear_row(row)
-                completed += 1
-            elif completed > 0:
-               self.move_row_down(row, completed)
-        return completed
-    
     def reset(self):
         #Nested list comprehension might not work for this case.
         #self.grid = [[0 for _ in range(self.num_rows)] for _ in range(self.num_cols)]

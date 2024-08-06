@@ -50,7 +50,8 @@ class Game:
             self.grid.grid[pos.row][pos.column] = self.current_block.id
         self.current_block = self.next_block
         self.next_block = self.get_random_block()
-        self.grid.clear_full_rows()
+        rows_cleared = self.grid.clear_row_move_down()
+        self.update_score(rows_cleared, 0)
         if self.block_fits() == False:
             self.game_over = True
     
@@ -83,6 +84,7 @@ class Game:
         self.blocks = [IBlock(), JBlock(), LBlock(), SBlock(), TBlock(), ZBlock()]
         self.current_block = self.get_random_block()
         self.next_block = self.get_random_block()
+        self.score = 0
     
     def draw(self, screen):
         self.grid.draw(screen)
