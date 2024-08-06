@@ -64,7 +64,7 @@ while running:
         screen.blit(game_over_surface, (320, 450, 50, 50))
     
     pygame.draw.rect(screen, Colors.light_blue, score_rect, 0, 10) # 0 and 10 to have rounded corners
-    screen.blut(score_value_surface, score_value_surface.get_rect(centerx = score_rect.centerx,
+    screen.blit(score_value_surface, score_value_surface.get_rect(centerx = score_rect.centerx,
                 centery = score_rect.centery))
     pygame.draw.rect(screen, Colors.light_blue, next_rect, 0, 10)
     game.draw(screen)
