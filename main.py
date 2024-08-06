@@ -1,10 +1,12 @@
 import pygame,sys
 from game import Game
 from blocks import *
+from colors import Colors
 
-# Game loop
 pygame.init()
-dark_blue = (44, 44, 127)
+
+title_font = pygame.font.Font(None, 40)
+score_surface = title_font.render("Score", True, Colors.white)
 
 screen = pygame.display.set_mode((500, 620)) # Width, Height
 pygame.display.set_caption("Python Tetris")
@@ -17,6 +19,7 @@ game = Game()
 game_update = pygame.USEREVENT
 pygame.time.set_timer(game_update, 200) # Updates the position of the block every 200 seconds.
 
+# Game loop
 while running:
     for event in pygame.event.get():
         # pygame.QUIT event allows the user to click X to close the game window.
@@ -44,7 +47,7 @@ while running:
             game.move_down()
             
     # Game Rendering/Drawing
-    screen.fill(dark_blue)
+    screen.fill(Colors.dark_blue)
     game.draw(screen)
     
     pygame.display.update()
