@@ -44,10 +44,15 @@ class Grid:
         self.grid.pop(row)
     
     def clear_row_move_down(self):
-        for row in range(self.num_rows):
+        cleared_rows = 0
+        # This had to be reworked as I was not returning an int value
+        # Which needed to be checked within an if statement within game.py
+        for row in range(self.num_rows -1, -1, -1):
             if self.is_row_filled(row):
                 self.clear_row(row)
                 self.insert_empty_row_at_the_top()
+                cleared_rows += 1
+        return cleared_rows
                 
     def reset(self):
         #Nested list comprehension might not work for this case.
