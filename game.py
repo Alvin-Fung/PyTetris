@@ -89,4 +89,13 @@ class Game:
     
     def draw(self, screen):
         self.grid.draw(screen)
-        self.current_block.draw(screen)
+        self.current_block.draw(screen, 11, 11)
+        
+        next_block_positions = {
+            3: (255, 290),
+            4: (255, 280)
+        }
+        default_position = (270, 270)
+        
+        next_position = next_block_positions.get(self.next_block.id, default_position)
+        self.next_block.draw(screen, *next_position)
