@@ -36,7 +36,10 @@ class Block:
         self.rotation_state -= 1
         if self.rotation_state == -1:
             self.rotation = len(self.cells) - 1
-        
+     
+    def hard_drop(self):
+        pass
+           
     def draw(self, screen, offset_x, offset_y):
         tiles = self.get_cell_positions() #Retrieves the current position of the rotation state
         for tile in tiles:
