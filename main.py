@@ -24,8 +24,8 @@ game = Game()
 controls = Controls(game)
 
 # Custom event - This will trigger every time the block position needs to be updated.
-game_update = pygame.USEREVENT
-pygame.time.set_timer(game_update, 200) # Updates the position of the block every 200 seconds.
+game.game_update = pygame.USEREVENT
+pygame.time.set_timer(game.game_update, 200) # Updates the position of the block every 200 seconds.
 
 # Game loop
 while running:
