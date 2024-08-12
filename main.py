@@ -1,7 +1,8 @@
-import pygame,sys
+import pygame
 from game import Game
 from blocks import *
 from colors import Colors
+from controls import Controls
 
 pygame.init()
 
@@ -20,37 +21,16 @@ clock = pygame.time.Clock()
 running = True
 
 game = Game()
+controls = Controls(game)
+
 # Custom event - This will trigger every time the block position needs to be updated.
 game_update = pygame.USEREVENT
 pygame.time.set_timer(game_update, 200) # Updates the position of the block every 200 seconds.
 
 # Game loop
 while running:
-    for event in pygame.event.get():
-        # pygame.QUIT event allows the user to click X to close the game window.
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit 
-        if event.type == pygame.KEYDOWN:
-            if game.game_over == True:
-                game.game_over = False
-                game.reset()
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_a and game.game_over == False:
-                game.move_left()
-            if event.key == pygame.K_d and game.game_over == False:
-                game.move_right()
-            if event.key == pygame.K_w and game.game_over == False:
-                game.rotate()
-            if event.key == pygame.K_s and game.game_over == False:
-                game.move_down()
-                game.update_score(0, 1)
-            if event.key == pygame.K_ESCAPE and game.game_over == False:
-                game.paused()
-        if event.type == game_update and game.game_over == False: 
-            # This will continously bring the piece down 
-            # whilst using the custom event outside the while loop
-            game.move_down()
+    # Controls & Event handling
+    controls.handle_events()
             
     # Game Rendering/Drawing
     

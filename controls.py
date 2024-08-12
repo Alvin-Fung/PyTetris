@@ -1,4 +1,5 @@
-import pygame
+import pygame,sys
+import game
 
 class Controls:
     def __init__(self, game):
@@ -20,3 +21,16 @@ class Controls:
                 self.game.update_score(0, 1)
             elif event.key == pygame.K_ESCAPE and self.game.game_over == False:
                 self.game.paused()
+    
+    def handle_events(self):
+        for event in pygame.event.get():
+        # pygame.QUIT event allows the user to click X to close the game window.
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit 
+            if event.type == pygame.KEYDOWN:
+                self.handle_keydown(event)
+            if event.type ==  self.game.game_update and self.game.game_over == False: 
+                # This will continously bring the piece down 
+                # whilst using the custom event outside the while loop
+                self.game.move_down()
