@@ -19,6 +19,9 @@ class Controls:
             elif event.key == pygame.K_s and self.game.game_over == False:
                 self.game.move_down()
                 self.game.update_score(0, 1)
+            elif event.key == pygame.K_SPACE and self.game.game_over == False:
+                self.game.hard_drop()
+                self.game.update_score(0,1)
             elif event.key == pygame.K_ESCAPE and self.game.game_over == False:
                 self.game.paused()
     

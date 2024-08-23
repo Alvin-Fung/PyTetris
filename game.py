@@ -66,8 +66,22 @@ class Game:
                 
     def rotate(self):
         self.current_block.rotate()
-        if self.block_inside == False or self.block_fits() == False:
+        if self.block_inside() == False or self.block_fits() == False:
             self.current_block.undo_rotation()
+    
+    def hard_drop(self): # Should instantly move the current block down until it collides with the grid or the block below
+        while True:
+            # Moves the block down
+            self.current_block.move(1,0)
+            # Checks for collisions
+            if self.block_inside() == False or self.block_fits() == False:
+                # This moves the block back up by one row(undo the last move)
+                self.current_block.move(-1, 0)
+                break
+            self.grid.clear_row_move_down()
+            self.lock_block()
+            break
+               
     
     def block_inside(self):
         tiles = self.current_block.get_cell_positions()
