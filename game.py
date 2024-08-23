@@ -77,12 +77,12 @@ class Game:
             if self.block_inside() == False or self.block_fits() == False:
                 # This moves the block back up by one row(undo the last move)
                 self.current_block.move(-1, 0)
+                if self.current_block.get_cell_positions()[0].row >= self.grid.num_rows:
+                    break
+                self.lock_block()
+                self.grid.clear_row_move_down()
                 break
-            self.grid.clear_row_move_down()
-            self.lock_block()
-            break
-               
-    
+            
     def block_inside(self):
         tiles = self.current_block.get_cell_positions()
         #Checks if there are any tiles outisde of the grid
