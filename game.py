@@ -1,6 +1,7 @@
 from grid import Grid
 from blocks import *
 import random
+import pygame
 
 class Game:
     def __init__(self):
@@ -92,7 +93,12 @@ class Game:
         return True
     
     def paused(self):
-        pass
+        is_paused = True
+        # Pause loop
+        while is_paused:
+            for event in pygame.event.get(pygame.KEYDOWN):
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                        is_paused = False
     
     def reset(self):
         self.grid.reset()
