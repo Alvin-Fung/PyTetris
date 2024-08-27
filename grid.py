@@ -1,5 +1,6 @@
 import pygame
 from colors import Colors
+import time
 
 '''
 Need functions that:
@@ -40,8 +41,12 @@ class Grid:
         empty_row = [0] * self.num_cols
         self.grid.insert(0, empty_row)
 
-    def clear_row(self, row):
-        self.grid.pop(row)
+    def clear_row(self, row_index):
+        for col_index in range(len(self.grid[0])):
+            self.grid[row_index][col_index] = Colors.yellow
+        pygame.display.update()
+        time.sleep(0.2)
+        self.grid.pop(row_index)
     
     def clear_row_move_down(self):
         cleared_rows = 0

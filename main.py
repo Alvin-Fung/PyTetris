@@ -3,6 +3,7 @@ from game import Game
 from blocks import *
 from colors import Colors
 from controls import Controls
+from grid import Grid
 
 pygame.init()
 
@@ -10,6 +11,7 @@ title_font = pygame.font.Font(None, 40)
 score_surface = title_font.render("Score", True, Colors.white)
 next_surface = title_font.render("Next", True, Colors.white)
 game_over_surface = title_font.render("Game Over!", True, Colors.white)
+paused_surface = title_font.render("Paused - Press ESC to resume.", True, Colors.white )
 
 score_rect = pygame.Rect(320, 50, 170, 60)
 next_rect = pygame.Rect(320, 215, 170, 180)
@@ -40,6 +42,9 @@ while running:
     screen.fill(Colors.dark_blue)
     screen.blit(score_surface, (365, 20, 50, 50))
     screen.blit(next_surface, (375, 180, 50, 50))
+    
+    # if game.paused == False:
+    #     screen.blit(paused_surface, (250, 310, 50, 50))
     if game.game_over == True:
         screen.blit(game_over_surface, (320, 450, 50, 50))
     
